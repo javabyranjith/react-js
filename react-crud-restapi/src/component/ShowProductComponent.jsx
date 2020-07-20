@@ -10,14 +10,17 @@ class ShowProductComponent extends Component {
             products: [],
             message: null
         }
-        this.loadProducts = this.loadProducts.bind(this);
+        this.getAllProducts = this.getAllProducts.bind(this);
+        this.addProduct = this.addProduct.bind(this);
+        this.editProduct = this.editProduct.bind(this);
+        this.deleteProduct = this.deleteProduct.bind(this);
     }
 
     componentDidMount(){
-        this.loadProducts();
+        this.getAllProducts();
     }
 
-    loadProducts(){
+    getAllProducts() {
         ProductService.getAllProducts()
         .then((response) => {
             this.setState({
